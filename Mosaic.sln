@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mosaic", "Mosaic\Mosaic.csproj", "{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Mosaic\\Mosaic.csproj
+		SccProjectName1 = Mosaic
+		SccLocalPath1 = Mosaic
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|Any CPU.Build.0 = Debug|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|Any CPU.Deploy.0 = Debug|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|ARM.ActiveCfg = Debug|ARM
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|ARM.Build.0 = Debug|ARM
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|ARM.Deploy.0 = Debug|ARM
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|x86.ActiveCfg = Debug|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|x86.Build.0 = Debug|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Debug|x86.Deploy.0 = Debug|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|ARM.ActiveCfg = Release|ARM
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|ARM.Build.0 = Release|ARM
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|ARM.Deploy.0 = Release|ARM
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|x86.ActiveCfg = Release|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|x86.Build.0 = Release|x86
+		{58C07FB0-BD93-406B-8BF7-F4D0F13E2130}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

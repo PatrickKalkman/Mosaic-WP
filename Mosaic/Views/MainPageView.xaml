@@ -1,0 +1,147 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Mosaic.Views.MainPageView"
+    Style ="{StaticResource DefaultPage}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:BindableAppBar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:Controls="clr-namespace:RateMyApp.Controls;assembly=RateMyApp"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="{Binding BackgroundImageBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+		 <!-- LOCALIZATION NOTE:
+            To localize the displayed strings copy their values to appropriately named
+            keys in the app's neutral language resource file (AppResources.resx) then
+            replace the hard-coded text value between the attributes' quotation marks
+            with the binding clause whose path points to that string name.
+
+            For example:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            This binding points to the template's string resource named "ApplicationTitle".
+
+            Adding supported languages in the Project Properties tab will create a
+            new resx file per language that can carry the translated values of your
+            UI strings. The binding in these examples will cause the value of the
+            attributes to be drawn from the .resx file that matches the
+            CurrentUICulture of the app at run time.
+         -->
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationName" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock HorizontalAlignment="Center" Style="{StaticResource PhoneTextLargeStyle}">Automatic</TextBlock>
+                <telerikPrimitives:RadMosaicHubTile 
+                    Width="426"
+                                                    Height="200"
+                                                    FontSize="15"
+                                                    Margin="0, 8, 0, 0"
+                                                    HorizontalAlignment="Center"
+                                                    FontFamily="{StaticResource PhoneFontFamilyBold}"
+                                                    Padding="8, 0, 0, 8"
+                                                    Micro:Message.Attach="[Event Tap] = [Action MosaicFast]"
+                                                    x:Name="MosaicFast">
+                    <System:String>..\Assets\MosaicImages\Tile6.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile1.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile2.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile3.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile4.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile5.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile6.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile7.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile8.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile9.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile10.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile11.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile12.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile13.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile14.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile15.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile16.png</System:String>
+                    <System:String>..\Assets\MosaicImages\Tile17.png</System:String>
+                </telerikPrimitives:RadMosaicHubTile>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Margin="0, -10, 0, 0">
+                <TextBlock HorizontalAlignment="Center" Style="{StaticResource PhoneTextLargeStyle}">Manual</TextBlock>
+
+            <telerikPrimitives:RadMosaicHubTile Width="426" 
+                                                Height="200"
+                                                FontSize="15"
+                                                Margin="0, 8, 0, 0"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="{StaticResource PhoneFontFamilyBold}"
+                                                Padding="8, 0, 0, 8"
+                                                Micro:Message.Attach="[Event Tap] = [Action MosaicAdvanced]"                                                
+                                                x:Name="MosaicAdvanced">
+                <System:String>..\Assets\MosaicImages\Tile6.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile1.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile2.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile3.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile4.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile5.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile6.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile7.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile8.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile9.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile10.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile11.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile12.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile13.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile14.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile15.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile16.png</System:String>
+                <System:String>..\Assets\MosaicImages\Tile17.png</System:String>
+            </telerikPrimitives:RadMosaicHubTile>
+            </StackPanel>
+        </Grid>
+
+        <Controls:FeedbackOverlay x:Name="FeedbackOverlay" FeedbackTo="pkalkie@gmail.com" ApplicationName="Mosaic" CompanyName="SemanticArchitecture" FirstCount="3" />
+
+        <BindableAppBar:BindableAppBar x:Name="AppBar">
+            <BindableAppBar:BindableAppBarButton x:Name="About" Text="{Binding AboutImageText}" IconUri="{Binding AboutImageIcon}" />
+            <BindableAppBar:BindableAppBarButton x:Name="Help" Text="{Binding HelpImageText}" IconUri="{Binding HelpImageIcon}" />
+            <BindableAppBar:BindableAppBarMenuItem x:Name="Privacy" Text="privacy"></BindableAppBar:BindableAppBarMenuItem>
+        </BindableAppBar:BindableAppBar>
+        
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+        <!--<BindableAppBar:BindableAppBarMenuItem x:Name="About" Text="about" />
+            <BindableAppBar:BindableAppBarMenuItem x:Name="Help" Text="help" />-->
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
+

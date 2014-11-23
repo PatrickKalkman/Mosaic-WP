@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+  <DefaultLanguage xmlns="" code="en-US" />
+  <App xmlns="" ProductID="{58c07fb0-bd93-406b-8bf7-f4d0f13e2130}" Title="Photo mosaic" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Patrick Kalkman" Description="Create beautiful mosaic from your personal images. Enhance the mosaic with sveral filters." Publisher="Patrick Kalkman" PublisherID="{ad4e7948-73b3-4954-9704-f4aaf6e0aaf0}">
+    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
+      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+      <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="Views/MainPageView.xaml" ActivationPolicy="Resume" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="DataBoundToken" TaskName="_default">
+        <TemplateCycle>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <Title>Mosaic</Title>
+          <Photo01ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile17.png</Photo01ImageURI>
+          <Photo02ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile16.png</Photo02ImageURI>
+          <Photo03ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile12.png</Photo03ImageURI>
+          <Photo04ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile11.png</Photo04ImageURI>
+          <Photo05ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile5.png</Photo05ImageURI>
+          <Photo06ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile6.png</Photo06ImageURI>
+          <Photo07ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile7.png</Photo07ImageURI>
+          <Photo08ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile8.png</Photo08ImageURI>
+          <Photo09ImageURI IsRelative="true" IsResource="false">Assets\MosaicImages\Tile9.png</Photo09ImageURI>
+          <Count>0</Count>
+          <HasLarge>True</HasLarge>
+          <DeviceLockImageURI IsRelative="true" IsResource="false">
+          </DeviceLockImageURI>
+        </TemplateCycle>
+      </PrimaryToken>
+    </Tokens>
+    <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+    </ScreenResolutions>
+  </App>
+</Deployment>

@@ -1,0 +1,90 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Mosaic.Views.MultiPhotoChooseView"
+    Style ="{StaticResource DefaultPage}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:BindableAppBar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Margin="{StaticResource PhoneHorizontalMargin}" Background="{Binding BackgroundImageBrush}">
+        <Grid.Resources>
+            <DataTemplate x:Key="WrapModeDataTemplate">
+                <StackPanel>
+                    <Image Source="{Binding Image}" Width="140" Height="140" Stretch="UniformToFill" Margin="0, 0, 8, 8"/>
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="StackModeDataTemplate">
+                <Grid Margin="0, 0, 0, 12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition MinWidth="140"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Image}" Stretch="UniformToFill" Width="280" Height="280" Margin="0, 0, 12, 0"/>
+                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                        <TextBlock FontSize="{StaticResource PhoneFontSizeMedium}" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Name}"/>
+                        <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="{Binding OwnerName}"/>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,17,0,28">
+            <TextBlock x:Name="ApplicationName" Text="APP TITLE" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="pictures" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>        
+        
+        <Grid x:Name="ExampleContent" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <telerikPrimitives:RadDataBoundListBox 
+            EmptyContent="Loading..."
+            IsAsyncBalanceEnabled="True"
+            x:Name="AvailableAlbums" 
+            ItemsSource="{Binding AvailableAlbums}"
+            SelectedItem="{Binding SelectedAlbum, Mode=TwoWay}"
+            Margin="12,0,0,0"
+            Grid.Row="1" 
+            ItemTemplate="{StaticResource StackModeDataTemplate}">
+                <telerikPrimitives:RadDataBoundListBox.CheckBoxStyle>
+                    <Style TargetType="telerikPrimitives:ItemCheckBox">
+                        <Setter Property="Background" Value="#CCCCCC"/>
+                    </Style>
+                </telerikPrimitives:RadDataBoundListBox.CheckBoxStyle>
+                <telerikPrimitives:RadDataBoundListBox.ItemAddedAnimation>
+                    <telerik:RadFadeAnimation StartOpacity="0" InitialDelay="0:0:0.3" EndOpacity="1" Duration="0:0:0.9">
+                        <telerik:RadFadeAnimation.Easing>
+                            <CubicEase EasingMode="EaseOut"/>
+                        </telerik:RadFadeAnimation.Easing>
+                    </telerik:RadFadeAnimation>
+                </telerikPrimitives:RadDataBoundListBox.ItemAddedAnimation>
+                <telerikPrimitives:RadDataBoundListBox.VirtualizationStrategyDefinition>
+                    <telerikPrimitives:WrapVirtualizationStrategyDefinition Orientation="Horizontal"/>
+                </telerikPrimitives:RadDataBoundListBox.VirtualizationStrategyDefinition>
+            </telerikPrimitives:RadDataBoundListBox>
+        </Grid>
+
+        <BindableAppBar:BindableAppBar x:Name="AppBar" IsVisible="{Binding IsAppBarVisible}">
+            <BindableAppBar:BindableAppBarButton x:Name="SelectImages" Text="{Binding SelectImagesText}" IconUri="{Binding SelectImageIcon}" />
+        </BindableAppBar:BindableAppBar>
+
+    </Grid>
+
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,79 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Mosaic.Views.AdvancedMosaicView"
+    Style ="{StaticResource DefaultPage}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:BindableAppBar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:telerikImageEditor="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.ImageEditor"
+    xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{Binding BackgroundImageBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationName" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,-20,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Visibility="{Binding FilterPanelVisible, Converter={StaticResource VisibilityConverter}}">
+                <Image x:Name="Result" Source="{Binding OriginalImageSource}" Margin="0,12,0,0" ManipulationDelta="Result_OnManipulationDelta" Stretch="Uniform">
+                    <Image.RenderTransform>
+                        <CompositeTransform CenterX="100" CenterY="100" />
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{Binding FilterPanelVisible, Converter={StaticResource VisibilityConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <CheckBox Content="Sepia"  IsChecked="{Binding ApplySepiaFilter, Mode=TwoWay}"></CheckBox>
+                        <CheckBox Content="Grayscale" IsChecked="{Binding ApplyGrayScaleFilter, Mode=TwoWay}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <CheckBox Content="Lomo" IsChecked="{Binding ApplyLomoFilter, Mode=TwoWay}"></CheckBox>
+                        <CheckBox Content="Gradient" IsChecked="{Binding ApplyGradientFilter, Mode=TwoWay}" ></CheckBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <telerikPrimitives:RadToggleSwitch Header="Type of mosaic" x:Name="vibrateSwitch" Content="{Binding ToggleContent}" IsChecked="{Binding TypeOfMosaic, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                    <CheckBox Content="Blur" IsChecked="{Binding ApplyBlurFilter, Mode=TwoWay}" VerticalAlignment="Bottom"></CheckBox>
+                </StackPanel>
+            </StackPanel>
+            <telerikImageEditor:RadImageEditor x:Name="CropEditor" Micro:Message.Attach="[Event MouseEnter] = [Action MouseEnter($eventArgs)]" Width="434" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding CropPanelVisible, Converter={StaticResource VisibilityConverter}}" Source="{Binding OriginalImageSource}" VerticalAlignment="Bottom" >
+                <telerikImageEditor:CropTool x:Name="myCropTool" >
+                    <telerikImageEditor:CropToolRatio CustomText="Custom" CanResize="True" />
+                </telerikImageEditor:CropTool>
+            </telerikImageEditor:RadImageEditor>
+        </Grid>
+
+        <BindableAppBar:BindableAppBar x:Name="AppBar" IsVisible="{Binding IsAppBarVisible}">
+            <BindableAppBar:BindableAppBarButton x:Name="CropImage" Text="{Binding CropImageText}" IconUri="{Binding CropImageIcon}" />
+            <BindableAppBar:BindableAppBarButton x:Name="RefreshImage" Text="{Binding RefreshImageText}" IconUri="{Binding RefreshImageIcon}" />
+            <BindableAppBar:BindableAppBarButton x:Name="SaveImage" Text="{Binding SaveImageText}" IconUri="{Binding SaveImageIcon}" />
+        </BindableAppBar:BindableAppBar>
+    </Grid>
+
+</phone:PhoneApplicationPage>
