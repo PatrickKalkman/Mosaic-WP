@@ -1,5 +1,6 @@
 Mosaic-WP
 =========
+[![Build status](https://ci.appveyor.com/api/projects/status/a4t5jntrx50ke7fk/branch/master?svg=true)](https://ci.appveyor.com/project/kalkie/mosaic-wp)
 
 ![Logo](http://cdn.marketplaceimages.windowsphone.com/v8/images/59ba39e2-2396-4853-9562-88c805b54162?imageType=ws_icon_large)
 
